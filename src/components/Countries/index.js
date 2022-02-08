@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 
 import { ADD_COUNTRY, createAction } from '../../redux/countries/index';
+import ListOfCountries from './countries-list';
 
 const populateReduxStore = (countries, dispatch) => {
   countries.forEach((country) => {
@@ -10,13 +11,19 @@ const populateReduxStore = (countries, dispatch) => {
   });
 };
 
-const Home = () => {
+const Countries = () => {
   const dispatch = useDispatch();
   const baseAPI = 'https://api.covid19tracking.narrativa.com/api/countries';
 
   useEffect(() => {
-    axios.get(baseAPI).then((countries) => populateReduxStore(countries.data.countries, dispatch));
+    axios
+      .get(baseAPI)
+      .then((countries) => populateReduxStore(countries.data.countries, dispatch));
   }, []);
-  return <div> Home</div>;
+  return (
+    <div>
+      <ListOfCountries />
+    </div>
+  );
 };
-export default Home;
+export default Countries;

@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Details from './components/Details/index';
-import Home from './components/Home/index';
+import Countries from './components/Countries/index';
 
 import './App.css';
 
 const App = () => (
   <>
     <Routes>
-      <Route exact path="/" element={<Home />} />
+      <Route exact path="/" element={<Countries />} />
       <Route path="/details" element={<Details />} />
     </Routes>
   </>
