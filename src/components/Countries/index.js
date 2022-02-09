@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { ADD_COUNTRY, createAction } from '../../redux/countries/index';
 import ListOfCountries from './countries-list';
@@ -13,12 +13,15 @@ const populateReduxStore = (countries, dispatch) => {
 
 const Countries = () => {
   const dispatch = useDispatch();
+  const countriesState = useSelector((state) => state.countries);
   const baseAPI = 'https://api.covid19tracking.narrativa.com/api/countries';
 
   useEffect(() => {
-    axios
-      .get(baseAPI)
-      .then((countries) => populateReduxStore(countries.data.countries, dispatch));
+    if (countriesState.fetched.length === 0) {
+      axios
+        .get(baseAPI)
+        .then((countries) => populateReduxStore(countries.data.countries, dispatch));
+    }
   }, []);
   return (
     <div>
