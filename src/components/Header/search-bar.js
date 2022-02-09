@@ -1,29 +1,13 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { createAction, SEARCH_COUNTRY } from '../../redux/countries';
 
 const SearchBar = () => {
-  const [searchState, setsearchState] = useState({
-    valueToSearch: '',
-    searchResult: [],
-  });
-  const countries = useSelector((state) => state.countries);
-
-  const search = async (value) => {
-    const filteredCountries = countries.filter(
-      (country) => country.name.substring(0, value.length) === value,
-    );
-    setsearchState({
-      ...searchState,
-      valueToSearch: value,
-      searchResult: filteredCountries,
-    });
-  };
+  const dispatch = useDispatch();
 
   return (
     <div>
       <input
-        value={searchState.valueToSearch}
-        onChange={(e) => search(e.target.value)}
+        onChange={(e) => dispatch(createAction(SEARCH_COUNTRY, e.target.value))}
         placeholder="Search country"
       />
     </div>

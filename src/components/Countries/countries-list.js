@@ -1,14 +1,17 @@
-import React, { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const ListOfCountries = () => {
-  const countries = useSelector((state) => state.countries);
+  const countriesState = useSelector((state) => state.countries);
 
   return (
     <div>
       <ul>
-        {countries.map((country) => (
-          <li key={country.id}>{country.name}</li>
-        ))}
+        {countriesState.searching === false && countriesState.searchResult.length === 0
+          ? countriesState.fetched.map((country) => (
+            <li key={country.id}>{country.name}</li>
+          )) : countriesState.searchResult.map((country) => (
+            <li key={country.id}>{country.name}</li>
+          ))}
       </ul>
     </div>
   );
