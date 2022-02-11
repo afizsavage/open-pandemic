@@ -25,6 +25,11 @@ input {
   text-transform: capitalize;
 }
 
+section > h2 {
+  font-size: 1.1rem;
+  padding: 0.3rem 0.5rem;
+}
+
 #hero {
   height: 10rem;
 }
@@ -36,8 +41,8 @@ input {
   background-position: left center;
 }
 
-#hero h1 {
-  margin-right: 5.5rem;
+#stats {
+  margin-right: 3rem;
 }
 
 .head-icon {
@@ -59,6 +64,10 @@ input {
 
 .b-secondary {
   background-color: #5788e5;
+}
+
+.b-third {
+  background-color: #35548b;
 }
 
 .full-width {

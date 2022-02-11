@@ -15,13 +15,16 @@ const fetchCountryDetails = async (name) => {
   return data;
 };
 
+const SecondHeading = () => (<h2 className="full-width white-text b-third">Stats By Country</h2>);
+
 const ListOfCountries = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const countriesState = useSelector((state) => state.countries);
 
   return (
-    <div>
+    <section>
+      <SecondHeading />
       <ul>
         {countriesState.searching === false && countriesState.searchResult.length === 0
           ? countriesState.fetched.map((country) => (
@@ -45,7 +48,7 @@ const ListOfCountries = () => {
             </li>
           ))}
       </ul>
-    </div>
+    </section>
   );
 };
 
