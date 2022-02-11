@@ -8,8 +8,8 @@ const Header = () => (
     <SearchBar />
     <span>Cases</span>
     <span>
-      <ImMic />
-      <MdSettings />
+      <ImMic className="head-icon" />
+      <MdSettings className="head-icon" />
     </span>
   </header>
 );

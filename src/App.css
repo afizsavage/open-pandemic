@@ -25,6 +25,10 @@ input {
   text-transform: capitalize;
 }
 
+.head-icon {
+  margin-left: 0.6rem;
+}
+
 #search-icon {
   right: 0.5rem;
   top: 0.5rem;
