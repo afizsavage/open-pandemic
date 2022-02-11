@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { ADD_COUNTRY, createAction } from '../../redux/countries/index';
 import ListOfCountries from './countries-list';
+import HeroSection from './hero-section';
 
 const populateReduxStore = (countries, dispatch) => {
   countries.forEach((country) => {
@@ -24,9 +25,10 @@ const Countries = () => {
     }
   }, []);
   return (
-    <div>
+    <main>
+      <HeroSection />
       <ListOfCountries />
-    </div>
+    </main>
   );
 };
 export default Countries;

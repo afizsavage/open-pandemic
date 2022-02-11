@@ -25,6 +25,21 @@ input {
   text-transform: capitalize;
 }
 
+#hero {
+  height: 10rem;
+}
+
+#hero > div {
+  background-image: url('/public/world.svg');
+  background-size: 15rem;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+#hero h1 {
+  margin-right: 5.5rem;
+}
+
 .head-icon {
   margin-left: 0.6rem;
 }
@@ -32,6 +47,10 @@ input {
 #search-icon {
   right: 0.5rem;
   top: 0.5rem;
+}
+
+.flex-end {
+  justify-content: end;
 }
 
 .b-primary {
