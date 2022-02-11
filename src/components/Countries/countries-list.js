@@ -7,9 +7,10 @@ const dispatchAction = async (country, dispatch) => {
   dispatch(createAction(VIEW_COUNTRY_DETAILS, country));
 };
 
-const fetchCountryDetails = async () => {
+const fetchCountryDetails = async (name) => {
+  const param = name.toLowerCase();
   const data = axios.get(
-    'https://api.covid19tracking.narrativa.com/api/2020-03-22/country/cuba',
+    `https://api.covid19tracking.narrativa.com/api/2020-03-22/country/${param}`,
   );
   return data;
 };
@@ -27,7 +28,7 @@ const ListOfCountries = () => {
             <li key={country.id}>
               <a
                 href
-                onClick={() => fetchCountryDetails().then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
+                onClick={() => fetchCountryDetails(country.name).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
               >
                 {country.name}
               </a>
@@ -37,7 +38,7 @@ const ListOfCountries = () => {
             <li key={country.id}>
               <a
                 href
-                onClick={() => fetchCountryDetails().then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
+                onClick={(e) => fetchCountryDetails(e.target.id).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
               >
                 {country.name}
               </a>
