@@ -5,10 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ADD_COUNTRY, createAction } from '../../redux/countries/index';
 import ListOfCountries from './countries-list';
 import HeroSection from './hero-section';
+import imageList from './images-list';
 
 const populateReduxStore = (countries, dispatch) => {
+  let img;
+
   countries.forEach((country) => {
-    dispatch(createAction(ADD_COUNTRY, country));
+    img = imageList.filter((image) => image === `/static/media/${country.id}.ca0b588292929d82b58f13a83517aee9.svg`);
+    dispatch(createAction(ADD_COUNTRY, { ...country, image: img[0] }));
   });
 };
 
