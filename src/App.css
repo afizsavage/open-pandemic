@@ -70,6 +70,10 @@ section > h2 {
   background-color: #35548b;
 }
 
+.b-fourth {
+  background-color: #4268af;
+}
+
 .full-width {
   width: 100%;
 }
@@ -121,4 +125,25 @@ section > h2 {
 .country-image {
   width: 10rem;
   height: auto;
+}
+
+#countries {
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+#countries li {
+  width: 50%;
+}
+
+.top {
+  height: 10rem;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.bottom {
+  height: 6rem;
 }

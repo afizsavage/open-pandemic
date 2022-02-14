@@ -25,17 +25,23 @@ const ListOfCountries = () => {
   return (
     <section>
       <SecondHeading />
-      <ul>
+      <ul id="countries" className="flex full-width">
         {countriesState.searching === false && countriesState.searchResult.length === 0
           ? countriesState.fetched.map((country) => (
-            <li key={country.id}>
-              <a
-                href
+            <li className="b-fourth" key={country.id}>
+              <div
+                role="button"
+                tabIndex={0}
+                onKeyDown={() => fetchCountryDetails(country.name).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
                 onClick={() => fetchCountryDetails(country.name).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
               >
-                <img className="country-image" src={country.image} alt="Country Flag" />
-                <span>{country.name}</span>
-              </a>
+                <div className="top flex center-x">
+                  <img className="country-image" src={country.image} alt="Country Flag" />
+                </div>
+                <div className="bottom text-right">
+                  <span>{country.name}</span>
+                </div>
+              </div>
             </li>
           ))
           : countriesState.searchResult.map((country) => (
