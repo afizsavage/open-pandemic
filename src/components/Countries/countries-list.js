@@ -33,7 +33,7 @@ const ListOfCountries = () => {
                 href
                 onClick={() => fetchCountryDetails(country.name).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
               >
-                <img src={country.image} alt="Country Flag" />
+                <img className="country-image" src={country.image} alt="Country Flag" />
                 <span>{country.name}</span>
               </a>
             </li>
@@ -44,6 +44,7 @@ const ListOfCountries = () => {
                 href
                 onClick={(e) => fetchCountryDetails(e.target.id).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
               >
+                <img src={country.image} alt="Country Flag" />
                 {country.name}
               </a>
             </li>

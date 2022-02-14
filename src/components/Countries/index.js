@@ -5,13 +5,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ADD_COUNTRY, createAction } from '../../redux/countries/index';
 import ListOfCountries from './countries-list';
 import HeroSection from './hero-section';
-import imageList from './images-list';
 
+function importAllImages(r) {
+  return r.keys().map(r);
+}
+
+const imageList = importAllImages(
+  require.context('../../images', false, /\.(png|jpe?g|svg)$/),
+);
 const populateReduxStore = (countries, dispatch) => {
   let img;
 
   countries.forEach((country) => {
-    img = imageList.filter((image) => image === `/static/media/${country.id}.ca0b588292929d82b58f13a83517aee9.svg`);
+    img = imageList.filter((image) => image.includes(country.id));
     dispatch(createAction(ADD_COUNTRY, { ...country, image: img[0] }));
   });
 };
