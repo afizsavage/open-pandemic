@@ -132,12 +132,20 @@ section > h2 {
   list-style: none;
 }
 
+.details li {
+  padding: 1rem 1rem;
+}
+
+.details li:nth-child(odd) {
+  background-color: #3e61a3;
+}
+
 #countries li {
   width: 50%;
 }
 
 .top {
-  height: 10rem;
+  height: 8rem;
 }
 
 .text-right {
@@ -145,5 +153,10 @@ section > h2 {
 }
 
 .bottom {
-  height: 6rem;
+  height: 4.5rem;
+  padding: 1rem;
+}
+
+.space {
+  justify-content: space-between;
 }

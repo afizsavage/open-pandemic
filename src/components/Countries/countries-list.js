@@ -15,7 +15,7 @@ const fetchCountryDetails = async (name) => {
   return data;
 };
 
-const SecondHeading = () => (<h2 className="full-width white-text b-third">Stats By Country</h2>);
+export const SecondHeading = () => (<h2 className="full-width white-text b-third">Stats By Country</h2>);
 
 const ListOfCountries = () => {
   const navigate = useNavigate();

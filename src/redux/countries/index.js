@@ -22,7 +22,10 @@ const searchCountry = (state, value) => {
 };
 
 const viewCountryDetails = (state, country) => {
-  const newState = { ...state, currentCountry: country };
+  const { data } = country;
+  const countryToAdd = data.dates['2020-03-22'].countries;
+
+  const newState = { ...state, currentCountry: countryToAdd };
   return newState;
 };
 
