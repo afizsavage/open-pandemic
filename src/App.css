@@ -132,8 +132,13 @@ section > h2 {
   list-style: none;
 }
 
+.details svg {
+  right: 1rem;
+}
+
 .details li {
-  padding: 1rem 1rem;
+  padding: 1rem;
+  padding-right: 3rem;
 }
 
 .details li:nth-child(odd) {

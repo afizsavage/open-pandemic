@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { useSelector } from 'react-redux';
-// import { BsArrowRightCircle } from 'react-icons/bs';
+import { BsArrowRightCircle } from 'react-icons/bs';
 
 import { SecondHeading } from '../Countries/countries-list';
 import HeroSection from '../Countries/hero-section';
@@ -9,30 +9,66 @@ const CountryDetails = (object) => {
   const des = Object.values(object)[0];
   const mes = Object.values(des)[0];
 
-  // console.log(mes.id);
   return (
     <>
       <HeroSection />
       <SecondHeading />
       <ul className="details">
-        <li className=" relative b-fourth flex space white-text">
-          {/* <BsArrowRightCircle className="absolute" /> */}
-          <span>Confirmed</span>
+        <li className="relative b-fourth flex space white-text">
+          <span>Todays Open Cases</span>
           <span>
-            {mes.today_confirmed}
+            {mes.today_new_open_cases}
           </span>
+          <BsArrowRightCircle className="absolute" />
+        </li>
+        <li className=" relative b-fourth flex space white-text">
+          <span>Todays Confirmed</span>
+          <span>
+            {mes.today_new_confirmed}
+          </span>
+          <BsArrowRightCircle className="absolute" />
+        </li>
+        <li className=" relative b-fourth flex space white-text">
+          <span>Todays Recovered</span>
+          <span>
+            {mes.today_new_recovered}
+          </span>
+          <BsArrowRightCircle className="absolute" />
         </li>
         <li className="relative b-fourth flex space white-text">
-          <span>Deaths</span>
+          <span>Todays Deaths</span>
+          <span>
+            {mes.today_new_deaths}
+          </span>
+          <BsArrowRightCircle className="absolute" />
+        </li>
+        <li className="relative b-fourth flex space white-text">
+          <span>Total Open Cases</span>
           <span>
             {mes.today_deaths}
           </span>
+          <BsArrowRightCircle className="absolute" />
+        </li>
+        <li className=" relative b-fourth flex space white-text">
+          <span>Total Confirmed</span>
+          <span>
+            {mes.today_confirmed}
+          </span>
+          <BsArrowRightCircle className="absolute" />
         </li>
         <li className="relative b-fourth flex space white-text">
-          <span>Recovered</span>
+          <span>Total Deaths</span>
+          <span>
+            {mes.today_deaths}
+          </span>
+          <BsArrowRightCircle className="absolute" />
+        </li>
+        <li className="relative b-fourth flex space white-text">
+          <span>Total Recovered</span>
           <span>
             {mes.today_recovered}
           </span>
+          <BsArrowRightCircle className="absolute" />
         </li>
       </ul>
     </>
