@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { BsArrowRightCircle } from 'react-icons/bs';
+
 import { createAction, VIEW_COUNTRY_DETAILS } from '../../redux/countries';
 
 const dispatchAction = async (country, dispatch) => {
@@ -28,7 +30,8 @@ const ListOfCountries = () => {
       <ul id="countries" className="flex full-width">
         {countriesState.searching === false && countriesState.searchResult.length === 0
           ? countriesState.fetched.map((country) => (
-            <li className="b-fourth" key={country.id}>
+            <li className="relative b-fourth" key={country.id}>
+              <BsArrowRightCircle className="absolute white-text" />
               <div
                 role="button"
                 tabIndex={0}
@@ -38,14 +41,15 @@ const ListOfCountries = () => {
                 <div className="top flex center-x">
                   <img className="country-image" src={country.image} alt="Country Flag" />
                 </div>
-                <div className="bottom text-right">
+                <div className="bottom text-right white-text">
                   <span>{country.name}</span>
                 </div>
               </div>
             </li>
           ))
           : countriesState.searchResult.map((country) => (
-            <li className="b-fourth" key={country.id}>
+            <li className="relative b-fourth" key={country.id}>
+              <BsArrowRightCircle className="absolute white-text" />
               <div
                 role="button"
                 tabIndex={0}

@@ -145,8 +145,13 @@ section > h2 {
   background-color: #3e61a3;
 }
 
+#countries svg {
+  right: 0.5rem;
+}
+
 #countries li {
   width: 50%;
+  padding-top: 0.3rem;
 }
 
 .top {
