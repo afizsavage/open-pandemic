@@ -45,14 +45,20 @@ const ListOfCountries = () => {
             </li>
           ))
           : countriesState.searchResult.map((country) => (
-            <li key={country.id}>
-              <a
-                href
-                onClick={(e) => fetchCountryDetails(e.target.id).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
+            <li className="b-fourth" key={country.id}>
+              <div
+                role="button"
+                tabIndex={0}
+                onKeyDown={() => fetchCountryDetails(country.name).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
+                onClick={() => fetchCountryDetails(country.name).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
               >
-                <img src={country.image} alt="Country Flag" />
-                {country.name}
-              </a>
+                <div className="top flex center-x">
+                  <img className="country-image" src={country.image} alt="Country Flag" />
+                </div>
+                <div className="bottom text-right">
+                  <span>{country.name}</span>
+                </div>
+              </div>
             </li>
           ))}
       </ul>
