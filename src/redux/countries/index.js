@@ -11,17 +11,17 @@ export const createAction = (actionType, payload) => ({
   payload,
 });
 
-const searchCountry = (state, value) => {
+export const searchCountry = (state, value) => {
   const { fetched } = state;
 
   const filteredCountries = fetched.filter(
-    (country) => country.name.substring(0, value.length) === value,
+    (country) => country.name.includes(value),
   );
 
   return { ...state, searchResult: filteredCountries, searching: true };
 };
 
-const viewCountryDetails = (state, country) => {
+export const viewCountryDetails = (state, country) => {
   const newState = { ...state, currentCountry: country };
   return newState;
 };
