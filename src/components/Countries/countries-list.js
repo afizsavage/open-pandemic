@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { BsArrowRightCircle } from 'react-icons/bs';
 
 import { createAction, VIEW_COUNTRY_DETAILS } from '../../redux/countries';
+// import { getCurrentDate } from './api';
+// import { baseAPI, getCurrentDate } from './api';
 
 const dispatchAction = async (country, dispatch) => {
   dispatch(createAction(VIEW_COUNTRY_DETAILS, country));
@@ -41,8 +43,9 @@ const ListOfCountries = () => {
                 <div className="top flex center-x">
                   <img className="country-image" src={country.image} alt="Country Flag" />
                 </div>
-                <div className="bottom text-right white-text">
+                <div className="bottom text-right white-text flex column">
                   <span>{country.name}</span>
+                  <span>{country.today_confirmed.toLocaleString()}</span>
                 </div>
               </div>
             </li>
@@ -59,8 +62,9 @@ const ListOfCountries = () => {
                 <div className="top flex center-x">
                   <img className="country-image" src={country.image} alt="Country Flag" />
                 </div>
-                <div className="bottom text-right">
+                <div className="bottom text-right flex column">
                   <span>{country.name}</span>
+                  <span>{country.today_confirmed.toLocaleString()}</span>
                 </div>
               </div>
             </li>

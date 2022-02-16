@@ -33,7 +33,7 @@ const HeroSection = () => {
       <div className="full-height flex center-y flex-end">
         <div id="stats">
           <h1 className="white-text">{location.pathname === home ? 'Global' : name}</h1>
-          <span className="white-text">{`${cases} Cases`}</span>
+          <span className="white-text">{`${cases.toLocaleString()} Cases`}</span>
         </div>
       </div>
     </section>

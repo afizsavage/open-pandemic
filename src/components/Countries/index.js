@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ADD_COUNTRY, createAction } from '../../redux/countries/index';
 import ListOfCountries from './countries-list';
 import HeroSection from './hero-section';
+import { baseAPI, getCurrentDate } from './api';
 
 function importAllImages(r) {
   return r.keys().map(r);
@@ -28,12 +29,11 @@ const populateReduxStore = (data, dispatch) => {
 const Countries = () => {
   const dispatch = useDispatch();
   const countriesState = useSelector((state) => state.countries);
-  const baseAPI = 'https://api.covid19tracking.narrativa.com/api/2021-12-11';
 
   useEffect(() => {
     if (countriesState.fetched.length === 0) {
       axios
-        .get(baseAPI)
+        .get(`${baseAPI}${getCurrentDate()}`)
         .then((countries) => populateReduxStore(Object.values(countries.data.dates)[0], dispatch));
     }
   }, []);
