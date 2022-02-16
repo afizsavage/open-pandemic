@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { baseAPI, getCurrentDate } from './api';
 
 const getTotalAndCountryCases = (cases, setcases) => {
   setcases(cases.data.total.today_confirmed);
@@ -18,13 +19,11 @@ const HeroSection = () => {
   useEffect(() => {
     if (location.pathname === home) {
       axios
-        .get('https://api.covid19tracking.narrativa.com/api/2021-12-11')
+        .get(`${baseAPI}${getCurrentDate()}`)
         .then((cases) => getTotalAndCountryCases(cases, setcases));
     } else {
-      const countryName = Object.keys(state.currentCountry)[0];
-      const countryData = Object.values(state.currentCountry)[0];
-      setcases(countryData.today_confirmed);
-      setname(countryName);
+      setcases(state.currentCountry.today_confirmed);
+      setname(state.currentCountry.name);
     }
   }, []);
 

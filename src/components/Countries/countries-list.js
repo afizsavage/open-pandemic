@@ -1,22 +1,12 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { BsArrowRightCircle } from 'react-icons/bs';
 
 import { createAction, VIEW_COUNTRY_DETAILS } from '../../redux/countries';
-// import { getCurrentDate } from './api';
-// import { baseAPI, getCurrentDate } from './api';
 
 const dispatchAction = async (country, dispatch) => {
   dispatch(createAction(VIEW_COUNTRY_DETAILS, country));
-};
-
-const fetchCountryDetails = async (name) => {
-  const param = name.toLowerCase();
-  const data = axios.get(
-    `https://api.covid19tracking.narrativa.com/api/2020-03-22/country/${param}`,
-  );
-  return data;
 };
 
 export const SecondHeading = () => (<h2 className="full-width white-text b-third">Stats By Country</h2>);
@@ -37,8 +27,8 @@ const ListOfCountries = () => {
               <div
                 role="button"
                 tabIndex={0}
-                onKeyDown={() => fetchCountryDetails(country.name).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
-                onClick={() => fetchCountryDetails(country.name).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
+                onKeyDown={() => dispatchAction(country, dispatch).then(navigate('/details'))}
+                onClick={() => dispatchAction(country, dispatch).then(navigate('/details'))}
               >
                 <div className="top flex center-x">
                   <img className="country-image" src={country.image} alt="Country Flag" />
@@ -56,8 +46,8 @@ const ListOfCountries = () => {
               <div
                 role="button"
                 tabIndex={0}
-                onKeyDown={() => fetchCountryDetails(country.name).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
-                onClick={() => fetchCountryDetails(country.name).then((country) => dispatchAction(country, dispatch).then(navigate('/details')))}
+                onKeyDown={() => dispatchAction(country, dispatch).then(navigate('/details'))}
+                onClick={() => dispatchAction(country, dispatch).then(navigate('/details'))}
               >
                 <div className="top flex center-x">
                   <img className="country-image" src={country.image} alt="Country Flag" />
