@@ -5,13 +5,27 @@ import { BsArrowRightCircle } from 'react-icons/bs';
 import { SecondHeading } from '../Countries/countries-list';
 import HeroSection from '../Countries/hero-section';
 
+// const ListItem = (item) => {
+//   const { value } = item;
+
+//   return (
+//     <li className="relative b-fourth flex space white-text">
+//       <span>New</span>
+//       <span>
+//         {value.today_new_open_cases}
+//       </span>
+//       <BsArrowRightCircle className="absolute" />
+//     </li>
+//   );
+// };
+
 const CountryDetails = (item) => {
   const { country } = item;
   return (
     <>
       <HeroSection />
       <SecondHeading />
-      <ul className="details">
+      <ul className="details b-fourth">
         <li className="relative b-fourth flex space white-text">
           <span>Todays Open Cases</span>
           <span>

@@ -34,7 +34,7 @@ const ListOfCountries = () => {
                   <img className="country-image" src={country.image} alt="Country Flag" />
                 </div>
                 <div className="bottom text-right white-text flex column">
-                  <span>{country.name}</span>
+                  <span className="count-name">{country.name}</span>
                   <span>{country.today_confirmed.toLocaleString()}</span>
                 </div>
               </div>
@@ -52,8 +52,8 @@ const ListOfCountries = () => {
                 <div className="top flex center-x">
                   <img className="country-image" src={country.image} alt="Country Flag" />
                 </div>
-                <div className="bottom text-right flex column">
-                  <span>{country.name}</span>
+                <div className="bottom text-right white-text flex column">
+                  <span className="count-name">{country.name}</span>
                   <span>{country.today_confirmed.toLocaleString()}</span>
                 </div>
               </div>

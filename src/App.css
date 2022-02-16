@@ -1,3 +1,5 @@
+@import url('http://fonts.cdnfonts.com/css/gill-sans-mt-condensed');
+
 * {
   padding: 0;
   margin: 0;
@@ -10,6 +12,8 @@
 
 body {
   font-size: 16px;
+  font-family: 'Gill Sans MT', sans-serif;
+  background: #3e61a3;
 }
 
 header {
@@ -43,6 +47,14 @@ section > h2 {
 
 #stats {
   margin-right: 2rem;
+}
+
+#stats span {
+  font-weight: 500;
+}
+
+.head-text {
+  font-size: 1.1rem;
 }
 
 .head-icon {
@@ -139,6 +151,7 @@ section > h2 {
 .details li {
   padding: 1rem;
   padding-right: 3rem;
+  font-size: 1.1rem;
 }
 
 .details li:nth-child(odd) {
@@ -169,4 +182,9 @@ section > h2 {
 
 .space {
   justify-content: space-between;
+}
+
+.count-name {
+  font-size: 1.2rem;
+  font-weight: 800;
 }
