@@ -12,7 +12,11 @@ const splitArrayIntoTwo = (array) => {
   const firstHalf = array.slice(0, half);
   const secondHalf = array.slice(-half);
 
-  arrayToReturn.push(firstHalf, secondHalf);
+  if (array.length === 1) {
+    arrayToReturn.push(firstHalf, []);
+  } else {
+    arrayToReturn.push(firstHalf, secondHalf);
+  }
 
   return arrayToReturn;
 };
