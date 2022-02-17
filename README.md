@@ -41,6 +41,10 @@ To get a local copy up and running follow these simple example steps.
 1. run `npm run build` Builds the app for production to the `build` folder.\.
 2. run `npm start` to start the application in production mode.
 
+## Video Presentation
+
+[Video](https://drive.google.com/file/d/1aXrPo23ARoJhqoFP0w8ypQ57WKr0sRs4/view?usp=sharing)
+
 ## Authors
 
 👤 **Afiz Savage**
