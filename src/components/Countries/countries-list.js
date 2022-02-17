@@ -1,13 +1,6 @@
-// import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { BsArrowRightCircle } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
 
-import { createAction, VIEW_COUNTRY_DETAILS } from '../../redux/countries';
-
-const dispatchAction = async (country, dispatch) => {
-  dispatch(createAction(VIEW_COUNTRY_DETAILS, country));
-};
+import ListComponent from './list-component';
 
 export const SecondHeading = () => (
   <h2 className="full-width white-text b-third">Stats By Country</h2>
@@ -25,108 +18,24 @@ const splitArrayIntoTwo = (array) => {
 };
 
 const ListOfCountries = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const countriesState = useSelector((state) => state.countries);
   const fetchedArray = splitArrayIntoTwo(countriesState.fetched);
+  const searchResultArray = splitArrayIntoTwo(countriesState.searchResult);
   return (
     <section>
       <SecondHeading />
       <div id="countries" className="flex full-width">
         {
-          /* {countriesState.searching === false && countriesState.searchResult.length === 0
-          ? countriesState.fetched.map((country) => (
-            <li className="relative b-fourth" key={country.id}>
-              <BsArrowRightCircle className="absolute white-text" />
-              <div
-                role="button"
-                tabIndex={0}
-                onKeyDown={() => dispatchAction(country, dispatch).then(navigate('/details'))}
-                onClick={() => dispatchAction(country, dispatch).then(navigate('/details'))}
-              >
-                <div className="top flex center-x">
-                  <img className="country-image" src={country.image} alt="Country Flag" />
-                </div>
-                <div className="bottom text-right white-text flex column">
-                  <span className="count-name">{country.name}</span>
-                  <span>{country.today_confirmed.toLocaleString()}</span>
-                </div>
-              </div>
-            </li>
-          ))
-          : countriesState.searchResult.map((country) => (
-            <li className="relative b-fourth" key={country.id}>
-              <BsArrowRightCircle className="absolute white-text" />
-              <div
-                role="button"
-                tabIndex={0}
-                onKeyDown={() => dispatchAction(country, dispatch).then(navigate('/details'))}
-                onClick={() => dispatchAction(country, dispatch).then(navigate('/details'))}
-              >
-                <div className="top flex center-x">
-                  <img className="country-image" src={country.image} alt="Country Flag" />
-                </div>
-                <div className="bottom text-right white-text flex column">
-                  <span className="count-name">{country.name}</span>
-                  <span>{country.today_confirmed.toLocaleString()}</span>
-                </div>
-              </div>
-            </li>
-          ))} */
           countriesState.searching === false
           && countriesState.searchResult.length === 0 ? (
             <>
-              <ul id="first-list" className="flex column">
-                {fetchedArray[0].map((country) => (
-                  <li className="relative b-fourth" key={country.id}>
-                    <BsArrowRightCircle className="absolute white-text" />
-                    <div
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={() => dispatchAction(country, dispatch).then(navigate('/details'))}
-                      onClick={() => dispatchAction(country, dispatch).then(navigate('/details'))}
-                    >
-                      <div className="top flex center-x">
-                        <img className="country-image" src={country.image} alt="Country Flag" />
-                      </div>
-                      <div className="bottom text-right white-text flex column">
-                        <span className="count-name">{country.name}</span>
-                        <span>{country.today_confirmed.toLocaleString()}</span>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <ul id="second-list" className="flex column">
-                {fetchedArray[1].map((country) => (
-                  <li className="relative b-fourth" key={country.id}>
-                    <BsArrowRightCircle className="absolute white-text" />
-                    <div
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={() => dispatchAction(country, dispatch).then(navigate('/details'))}
-                      onClick={() => dispatchAction(country, dispatch).then(navigate('/details'))}
-                    >
-                      <div className="top flex center-x">
-                        <img className="country-image" src={country.image} alt="Country Flag" />
-                      </div>
-                      <div className="bottom text-right white-text flex column">
-                        <span className="count-name">{country.name}</span>
-                        <span>{country.today_confirmed.toLocaleString()}</span>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <ListComponent array={{ array: fetchedArray[0], id: 'first-list' }} />
+              <ListComponent array={{ array: fetchedArray[1], id: 'second-list' }} />
             </>
             ) : (
               <>
-                <ul>
-                  {fetchedArray[0].map((country) => (<li key={country.id}>{country.name }</li>))}
-                </ul>
-                <ul>
-                  <li>hi</li>
-                </ul>
+                <ListComponent array={{ array: searchResultArray[0], id: 'first-list' }} />
+                <ListComponent array={{ array: searchResultArray[1], id: 'second-list' }} />
               </>
             )
         }
