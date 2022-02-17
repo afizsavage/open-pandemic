@@ -19,7 +19,7 @@ Users can interact with the app by filtering the list of countries by name.
 
 ## Live Demo
 
-[Demo](https://spacetravelers-hub.herokuapp.com/)
+[Live Project](https://open-pandemic.herokuapp.com/)
 
 ## Getting Started
 
