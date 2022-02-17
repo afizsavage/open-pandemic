@@ -18,7 +18,7 @@ const ListItem = (item) => {
   );
 };
 
-const CountryDetails = (item) => {
+export const CountryDetails = (item) => {
   const { country } = item;
   return (
     <>
@@ -29,7 +29,7 @@ const CountryDetails = (item) => {
         <ListItem object={{ category: "Today's Confirmed", figure: country.today_new_confirmed.toLocaleString() }} />
         <ListItem object={{ category: "Today's Recovered", figure: country.today_new_recovered.toLocaleString() }} />
         <ListItem object={{ category: "Today's Deaths", figure: country.today_new_deaths.toLocaleString() }} />
-        <ListItem object={{ category: 'Total Open Cases', figure: country.today_deaths.toLocaleString() }} />
+        <ListItem object={{ category: 'Total Open Cases', figure: country.today_open_cases.toLocaleString() }} />
         <ListItem object={{ category: 'Total Confirmed', figure: country.today_confirmed.toLocaleString() }} />
         <ListItem object={{ category: 'Total Deaths', figure: country.today_deaths.toLocaleString() }} />
         <ListItem object={{ category: 'Total Recovered', figure: country.today_recovered.toLocaleString() }} />
