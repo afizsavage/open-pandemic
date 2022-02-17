@@ -139,8 +139,8 @@ section > h2 {
   height: auto;
 }
 
-#countries {
-  flex-wrap: wrap;
+.countries ul {
+  width: 50%;
   list-style: none;
 }
 
@@ -158,13 +158,25 @@ section > h2 {
   background-color: #3e61a3;
 }
 
+#countries li {
+  width: 100%;
+  padding-top: 0.3rem;
+}
+
+#countries ul {
+  width: 50%;
+}
+
+#second-list li:nth-child(even) {
+  background-color: #3e61a3;
+}
+
 #countries svg {
   right: 0.5rem;
 }
 
-#countries li {
-  width: 50%;
-  padding-top: 0.3rem;
+#first-list li:nth-child(odd) {
+  background-color: #3e61a3;
 }
 
 .top {
