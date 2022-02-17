@@ -1,23 +1,22 @@
-/* eslint-disable camelcase */
 import { useSelector } from 'react-redux';
 import { BsArrowRightCircle } from 'react-icons/bs';
 
 import { SecondHeading } from '../Countries/countries-list';
 import HeroSection from '../Countries/hero-section';
 
-// const ListItem = (item) => {
-//   const { value } = item;
+const ListItem = (item) => {
+  const { object } = item;
 
-//   return (
-//     <li className="relative b-fourth flex space white-text">
-//       <span>New</span>
-//       <span>
-//         {value.today_new_open_cases}
-//       </span>
-//       <BsArrowRightCircle className="absolute" />
-//     </li>
-//   );
-// };
+  return (
+    <li className="relative b-fourth flex space white-text">
+      <span>{object.category}</span>
+      <span>
+        {object.figure}
+      </span>
+      <BsArrowRightCircle className="absolute" />
+    </li>
+  );
+};
 
 const CountryDetails = (item) => {
   const { country } = item;
@@ -26,62 +25,14 @@ const CountryDetails = (item) => {
       <HeroSection />
       <SecondHeading />
       <ul className="details b-fourth">
-        <li className="relative b-fourth flex space white-text">
-          <span>Todays Open Cases</span>
-          <span>
-            {country.today_new_open_cases.toLocaleString()}
-          </span>
-          <BsArrowRightCircle className="absolute" />
-        </li>
-        <li className=" relative b-fourth flex space white-text">
-          <span>Todays Confirmed</span>
-          <span>
-            {country.today_new_confirmed.toLocaleString()}
-          </span>
-          <BsArrowRightCircle className="absolute" />
-        </li>
-        <li className=" relative b-fourth flex space white-text">
-          <span>Todays Recovered</span>
-          <span>
-            {country.today_new_recovered.toLocaleString()}
-          </span>
-          <BsArrowRightCircle className="absolute" />
-        </li>
-        <li className="relative b-fourth flex space white-text">
-          <span>Todays Deaths</span>
-          <span>
-            {country.today_new_deaths.toLocaleString()}
-          </span>
-          <BsArrowRightCircle className="absolute" />
-        </li>
-        <li className="relative b-fourth flex space white-text">
-          <span>Total Open Cases</span>
-          <span>
-            {country.today_deaths.toLocaleString()}
-          </span>
-          <BsArrowRightCircle className="absolute" />
-        </li>
-        <li className=" relative b-fourth flex space white-text">
-          <span>Total Confirmed</span>
-          <span>
-            {country.today_confirmed.toLocaleString()}
-          </span>
-          <BsArrowRightCircle className="absolute" />
-        </li>
-        <li className="relative b-fourth flex space white-text">
-          <span>Total Deaths</span>
-          <span>
-            {country.today_deaths.toLocaleString()}
-          </span>
-          <BsArrowRightCircle className="absolute" />
-        </li>
-        <li className="relative b-fourth flex space white-text">
-          <span>Total Recovered</span>
-          <span>
-            {country.today_recovered.toLocaleString()}
-          </span>
-          <BsArrowRightCircle className="absolute" />
-        </li>
+        <ListItem object={{ category: "Today's Open Cases", figure: country.today_new_open_cases }} />
+        <ListItem object={{ category: "Today's Confirmed", figure: country.today_new_confirmed.toLocaleString() }} />
+        <ListItem object={{ category: "Today's Recovered", figure: country.today_new_recovered.toLocaleString() }} />
+        <ListItem object={{ category: "Today's Deaths", figure: country.today_new_deaths.toLocaleString() }} />
+        <ListItem object={{ category: 'Total Open Cases', figure: country.today_deaths.toLocaleString() }} />
+        <ListItem object={{ category: 'Total Confirmed', figure: country.today_confirmed.toLocaleString() }} />
+        <ListItem object={{ category: 'Total Deaths', figure: country.today_deaths.toLocaleString() }} />
+        <ListItem object={{ category: 'Total Recovered', figure: country.today_recovered.toLocaleString() }} />
       </ul>
     </>
   );
