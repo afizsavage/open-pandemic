@@ -20,8 +20,8 @@ const ListComponent = (list) => {
           <div
             role="button"
             tabIndex={0}
-            onKeyDown={() => dispatchAction(country, dispatch).then(navigate('/details'))}
-            onClick={() => dispatchAction(country, dispatch).then(navigate('/details'))}
+            onKeyDown={() => dispatchAction(country, dispatch).then(navigate(`details/${country.id}`))}
+            onClick={() => dispatchAction(country, dispatch).then(navigate(`details/${country.id}`))}
           >
             <div className="top flex center-x">
               <img className="country-image" src={country.image} alt="Country Flag" />

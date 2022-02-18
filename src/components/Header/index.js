@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="b-primary flex white-text center-y space-between">
       {location.pathname === '/' && <SearchBar />}
-      {location.pathname === '/details' && <BiArrowBack onClick={() => navigate('/')} />}
+      {location.pathname.includes('/details') && <BiArrowBack onClick={() => navigate('/')} />}
       <span className="head-text">{location.pathname === '/' ? 'Cases' : 'Cases by country'}</span>
       <span>
         <ImMic className="head-icon" />
