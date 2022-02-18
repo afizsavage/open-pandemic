@@ -1,0 +1,203 @@
+@import url('https://fonts.cdnfonts.com/css/gill-sans-mt-condensed');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Gill Sans MT', sans-serif;
+  background: #3e61a3;
+}
+
+header {
+  height: 3.2rem;
+  padding: 0 0.5rem;
+}
+
+input {
+  width: 10rem;
+  border: none;
+  border: 1px solid #fff;
+  padding: 0 0.5rem;
+  text-transform: capitalize;
+}
+
+section > h2 {
+  font-size: 1.1rem;
+  padding: 0.3rem 0.5rem;
+}
+
+#hero {
+  height: 10rem;
+}
+
+#hero > div {
+  background-image: url('/public/world.svg');
+  background-size: 15rem;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+#stats {
+  margin-right: 2rem;
+}
+
+#stats span {
+  font-weight: 500;
+}
+
+.head-text {
+  font-size: 1.1rem;
+}
+
+.head-icon {
+  margin-left: 0.6rem;
+}
+
+#search-icon {
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+.flex-end {
+  justify-content: end;
+}
+
+.b-primary {
+  background-color: #4369b2;
+}
+
+.b-secondary {
+  background-color: #5788e5;
+}
+
+.b-third {
+  background-color: #35548b;
+}
+
+.b-fourth {
+  background-color: #4268af;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.white-text {
+  color: #fff;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.center-x {
+  justify-content: center;
+}
+
+.center-y {
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.bg-inherit {
+  background-color: inherit;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+#wrap {
+  height: 2rem;
+}
+
+.country-image {
+  width: 10rem;
+  height: auto;
+}
+
+.countries ul {
+  width: 50%;
+  list-style: none;
+}
+
+.details svg {
+  right: 1rem;
+}
+
+.details li {
+  padding: 1rem;
+  padding-right: 3rem;
+  font-size: 1.1rem;
+}
+
+.details li:nth-child(odd) {
+  background-color: #3e61a3;
+}
+
+#countries li {
+  width: 100%;
+  padding-top: 0.3rem;
+}
+
+#countries ul {
+  width: 50%;
+  list-style: none;
+}
+
+#second-list li:nth-child(even) {
+  background-color: #3e61a3;
+}
+
+#countries svg {
+  right: 0.5rem;
+}
+
+#first-list li:nth-child(odd) {
+  background-color: #3e61a3;
+}
+
+.top {
+  height: 8rem;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.bottom {
+  height: 4.5rem;
+  padding: 1rem;
+}
+
+.space {
+  justify-content: space-between;
+}
+
+.count-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
